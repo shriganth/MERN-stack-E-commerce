@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connectDB } from "./config/db.js";
-// import Product from "./model/product.model.js";
 import productRoute from "./routes/product.route.js";
-import Product from "./model/product.model.js";
+// import Product from "./model/product.model.js";
+import cartProductRoute from "./routes/cart-product.route.js";
 
 dotenv.config();
 
@@ -15,6 +15,8 @@ const __dirname = path.resolve();
 app.use(express.json());
 
 app.use("/api/product", productRoute);
+
+app.use("/api/cart", cartProductRoute)
 
 // console.log(process.env.MONGO_URI);
 

@@ -1,6 +1,7 @@
 import { HStack, Container, Flex, Text, Button, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { AddIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { Link } from "react-router-dom";
+import { BsCartFill } from "react-icons/bs";
 
 const Navbar = () => {
 
@@ -18,6 +19,7 @@ const Navbar = () => {
                 </Text>
                 <HStack float={"right"} mr={"20px"} gap={"20px"}>
                     <Link to={"/create"} ><Button bgColor={bg} color={iconColor} ><AddIcon/></Button></Link>
+                    <Link to={"/cart"} ><Button bgColor={bg} color={iconColor} ><BsCartFill/></Button></Link>
                     <Button bgColor={bg} color={iconColor} onClick={toggleColorMode} >{colorMode === 'light' ? <SunIcon/> : <MoonIcon/>}</Button>
                 </HStack>
             </Flex>
