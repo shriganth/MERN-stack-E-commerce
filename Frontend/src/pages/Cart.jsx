@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { cartProductStore } from "../store/CartProduct";
-import { Container, VStack, SimpleGrid } from "@chakra-ui/react";
+import { Container, VStack, SimpleGrid, Heading } from "@chakra-ui/react";
 import CartProductCard from "../components/CartProductCard";
 
 const Cart = () => {
@@ -13,6 +13,8 @@ const Cart = () => {
 
     return (
         <Container maxW={"6xl"}>
+
+            <Heading>Cart </Heading>
 
             <VStack>
                 <SimpleGrid columns={4} spacing={10} >
