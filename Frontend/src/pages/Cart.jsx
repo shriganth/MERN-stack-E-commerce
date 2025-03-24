@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { cartProductStore } from "../store/CartProduct";
 import { Container, VStack, SimpleGrid, Heading } from "@chakra-ui/react";
 import CartProductCard from "../components/CartProductCard";
+import Navbar from "../components/Navbr";
 
 const Cart = () => {
 
@@ -12,22 +13,26 @@ const Cart = () => {
     }, [fetchCartProduct]);
 
     return (
-        <Container maxW={"6xl"}>
+        <>
+            <Navbar/>
 
-            <Heading>Cart </Heading>
+            <Container maxW={"6xl"}>
 
-            <VStack>
-                <SimpleGrid columns={4} spacing={10} >
-                {cartProducts && cartProducts.length > 0 ? (
-                    cartProducts.map((product) => (
-                    <CartProductCard key={product._id} cartProduct={product} />
-                    ))) : (
-                    <p>No cart products found.</p>
-                )}
-                </SimpleGrid>
-            </VStack>
+                <Heading>Cart </Heading>
 
-        </Container>
+                <VStack>
+                    <SimpleGrid columns={4} spacing={10} >
+                    {cartProducts && cartProducts.length > 0 ? (
+                        cartProducts.map((product) => (
+                        <CartProductCard key={product._id} cartProduct={product} />
+                        ))) : (
+                        <p>No cart products found.</p>
+                    )}
+                    </SimpleGrid>
+                </VStack>
+
+            </Container>
+        </>
     );
 }
 
