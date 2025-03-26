@@ -11,6 +11,10 @@ const signinSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        Type: {
+            type: String,
+            required: true,
+        },
     },
     {
         timestamps: true,
