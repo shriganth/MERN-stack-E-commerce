@@ -5,6 +5,7 @@ import { connectDB } from "./config/db.js";
 import productRoute from "./routes/product.route.js";
 // import Product from "./model/product.model.js";
 import cartProductRoute from "./routes/cart-product.route.js";
+import userRoute from "./routes/signup.route.js";
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ app.use(express.json());
 app.use("/api/product", productRoute);
 
 app.use("/api/cart", cartProductRoute)
+
+app.use("/api/user", userRoute);
 
 // console.log(process.env.MONGO_URI);
 

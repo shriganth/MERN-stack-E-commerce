@@ -3,8 +3,8 @@ import { addCartProducts, deleteCartProducts, getCartProduct } from "../controll
 
 const cartProductRoute = express.Router();
 
-cartProductRoute.post("/", addCartProducts);
-cartProductRoute.get("/", getCartProduct);
+cartProductRoute.post("/:id", addCartProducts);
+cartProductRoute.get("/:id", getCartProduct);
 cartProductRoute.delete("/:id", deleteCartProducts);
 
 export default cartProductRoute;

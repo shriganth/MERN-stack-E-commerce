@@ -15,10 +15,16 @@ const cartProductSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-    },
-    {
-        timestamps: true,
-    }
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "signup",
+            required: true,
+        },
+        },
+
+        {
+            timestamps: true,
+        },
 );
 
 const cartProduct = mongoose.model("cart-products",cartProductSchema);

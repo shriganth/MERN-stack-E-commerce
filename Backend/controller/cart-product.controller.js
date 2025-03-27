@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 import cartProduct from "../model/cart-product.model.js";
+import signup from "../model/signup.model.js";
 
 export const getCartProduct = async (req, res) => {
+    // const { id } = 
     try {
         const cartProducts = await cartProduct.find({});
         res.status(200).json({ success: true, data: cartProducts });
@@ -12,9 +14,15 @@ export const getCartProduct = async (req, res) => {
 };
 
 export const addCartProducts = async(req, res) => {
-    const product = req.body;
+    const {name, price, image} = req.body;
+    const { id } = req.params.userId;
 
-    const newCartProduct = new cartProduct(product);
+    const user = await signup.findById({id});
+    if (!user) {
+        return res.status(404).json({ error: "User not found" });
+    }
+
+    const newCartProduct = new cartProduct({name, price, image, id});
         try {
             await newCartProduct.save();
             res.status(200).json({ success: true, message: "Cart created sucessfully..."});

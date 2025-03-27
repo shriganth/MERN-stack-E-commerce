@@ -25,7 +25,7 @@ const CreatePage = () => {
                 status: "error",
                 isClosable: true
             });
-        } else {
+        } else { 
             toast({
                 title: "Success",
                 description: message,

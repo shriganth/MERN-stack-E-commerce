@@ -12,6 +12,8 @@ const Home = () => {
         fetchProduct();
     }, [fetchProduct]);
 
+    // const userId = localStorage.getItem("")
+
     return (
         <>
             <Navbar/>
